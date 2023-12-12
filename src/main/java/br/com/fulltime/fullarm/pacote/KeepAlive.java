@@ -7,6 +7,6 @@ public class KeepAlive extends Pacote {
 
     @Override
     public String toString() {
-        return this.tipo + "";
+        return super.toString();
     }
 }

@@ -3,7 +3,7 @@ package br.com.fulltime.fullarm.factory;
 import br.com.fulltime.fullarm.pacote.*;
 
 public class PacoteFactory {
-    public Pacote createPacote(String identificador) {
+    public Pacote criar(String identificador) {
         switch (identificador) {
             case "F7":
                 return new KeepAlive(TipoPacote.KEEP_ALIVE);

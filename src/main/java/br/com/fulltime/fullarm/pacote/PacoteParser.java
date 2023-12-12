@@ -10,9 +10,12 @@ public class PacoteParser {
     }
 
     public Pacote identificarPacote() {
-        if (bytes.length > 1) {
-            return new PacoteFactory().createPacote(bytes[1]);
-        }
-        return new PacoteFactory().createPacote(bytes[0]);
+        if (ehFrameLongo())
+            return new PacoteFactory().criar(bytes[1]);
+        return new PacoteFactory().criar(bytes[0]);
+    }
+
+    private boolean ehFrameLongo() {
+        return bytes.length > 1;
     }
 }

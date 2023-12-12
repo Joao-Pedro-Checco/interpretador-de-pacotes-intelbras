@@ -6,4 +6,9 @@ public abstract class Pacote {
     public Pacote(TipoPacote tipo) {
         this.tipo = tipo;
     }
+
+    @Override
+    public String toString() {
+        return "Pacote[Tipo: " + this.tipo + "]";
+    }
 }

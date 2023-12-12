@@ -4,4 +4,9 @@ public class Evento extends Pacote {
     public Evento(TipoPacote tipo) {
         super(tipo);
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
