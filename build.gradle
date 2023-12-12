@@ -1,0 +1,30 @@
+plugins {
+    id("java")
+}
+
+group = "org.example"
+version = "1.0-SNAPSHOT"
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(platform("org.junit:junit-bom:5.9.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.11.0'
+
+
+    /* --------------------- Spring Boot --------------------- */
+    implementation group: 'org.springframework', name: 'spring-context', version: '5.2.5.RELEASE'
+//    implementation("org.springframework:spring-context:6.1.2")
+//    implementation("org.springframework:spring-core:6.1.2")
+//    implementation("org.springframework:spring-beans:6.1.2")
+    /* ------------------------------------------------------- */
+}
+
+tasks.test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fulltime.fullarm.app.javafx.controller.result.longframe.event.EventResultSceneControllerImpl">
+   <children>
+      <Text layoutX="17.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacote" wrappingWidth="81.1702880859375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="packageLabel" layoutX="17.0" layoutY="54.0" prefHeight="35.0" prefWidth="681.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Text layoutX="15.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo do pacote" wrappingWidth="159.57025146484375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="packageTypeLabel" layoutX="17.0" layoutY="137.0" prefHeight="35.0" prefWidth="160.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Text layoutX="300.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo da conexão" wrappingWidth="159.57025146484375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="connectionTypeLabel" layoutX="300.0" layoutY="137.0" prefHeight="35.0" prefWidth="160.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Text layoutX="15.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta" wrappingWidth="159.57025146484375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="297.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact ID" wrappingWidth="159.57025146484375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="accountLabel" layoutX="15.0" layoutY="215.0" prefHeight="35.0" prefWidth="160.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="contactIdLabel" layoutX="297.0" layoutY="215.0" prefHeight="35.0" prefWidth="160.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Text layoutX="17.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qualificador" wrappingWidth="159.57025146484375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="qualifierLabel" layoutX="17.0" layoutY="291.0" prefHeight="35.0" prefWidth="160.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Text layoutX="297.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código do evento" wrappingWidth="182.77020263671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="eventCodeLabel" layoutX="297.0" layoutY="291.0" prefHeight="35.0" prefWidth="160.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Text layoutX="17.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Partição" wrappingWidth="159.57025146484375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="297.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Argumento" wrappingWidth="159.57025146484375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="partitionLabel" layoutX="17.0" layoutY="371.0" prefHeight="35.0" prefWidth="160.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="argumentLabel" layoutX="297.0" layoutY="371.0" prefHeight="35.0" prefWidth="160.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="336.0" layoutY="422.0" mnemonicParsing="false" onAction="#returnToMainScene" text="Voltar" />
+   </children>
+</AnchorPane>
