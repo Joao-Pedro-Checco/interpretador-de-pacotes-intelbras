@@ -1,38 +1,33 @@
 package br.com.fulltime.fullarm.factory;
 
-import br.com.fulltime.fullarm.pacote.*;
+import br.com.fulltime.fullarm.processador.*;
+
+import java.util.HashMap;
 
 public class PacoteFactory {
-    public Pacote criar(String identificador) {
-        switch (identificador) {
-            case "F7":
-                return new KeepAlive(TipoPacote.KEEP_ALIVE);
-            case "B0":
-                return new Evento(TipoPacote.EVENTO);
-            case "FE":
-                return new Ack(TipoPacote.ACK);
-            case "94":
-                return new Autenticacao(TipoPacote.AUTENTICACAO);
-            case "E0":
-                return new Nack(TipoPacote.NACK,"Formato de pacote inválido");
-            case "E1":
-                return new Nack(TipoPacote.NACK,"Senha incorreta");
-            case "E2":
-                return new Nack(TipoPacote.NACK,"Comando inválido");
-            case "E3":
-                return new Nack(TipoPacote.NACK,"Central não particionada");
-            case "E4":
-                return new Nack(TipoPacote.NACK,"Zonas abertas");
-            case "E5":
-                return new Nack(TipoPacote.NACK,"Comando descontinuado");
-            case "E6":
-                return new Nack(TipoPacote.NACK,"Usuário sem permissão para bypass");
-            case "E7":
-                return new Nack(TipoPacote.NACK,"Usuário sem permissão para desativar");
-            case "E8":
-                return new Nack(TipoPacote.NACK,"Bypass não permitido com a central ativada");
-            default:
-                throw new IllegalArgumentException("Identificador de pacote desconhecido: " + identificador);
-        }
+    private final HashMap<String, ProcessadorPacote> mapa = new HashMap<>();
+
+    public PacoteFactory() {
+        this.inicializarMapa();
+    }
+
+    public ProcessadorPacote buscarProcessador(String identificador) {
+        return mapa.get(identificador);
+    }
+
+    private void inicializarMapa() {
+        mapa.put("F7", new ProcessadorKeepAlive());
+        mapa.put("B0", new ProcessadorEvento());
+        mapa.put("FE", new ProcessadorAck());
+        mapa.put("94", new ProcessadorAutenticacao());
+        mapa.put("E0", new ProcessadorNack());
+        mapa.put("E1", new ProcessadorNack());
+        mapa.put("E2", new ProcessadorNack());
+        mapa.put("E3", new ProcessadorNack());
+        mapa.put("E4", new ProcessadorNack());
+        mapa.put("E5", new ProcessadorNack());
+        mapa.put("E6", new ProcessadorNack());
+        mapa.put("E7", new ProcessadorNack());
+        mapa.put("E8", new ProcessadorNack());
     }
 }

@@ -1,6 +1,7 @@
 package br.com.fulltime.fullarm.pacote;
 
 import br.com.fulltime.fullarm.factory.PacoteFactory;
+import br.com.fulltime.fullarm.processador.ProcessadorPacote;
 
 public class PacoteParser {
     private String[] bytes;
@@ -9,10 +10,10 @@ public class PacoteParser {
         this.bytes = hexString.split(" ");
     }
 
-    public Pacote identificarPacote() {
+    public ProcessadorPacote identificarPacote() {
         if (ehFrameLongo())
-            return new PacoteFactory().criar(bytes[1]);
-        return new PacoteFactory().criar(bytes[0]);
+            return new PacoteFactory().buscarProcessador(bytes[1]);
+        return new PacoteFactory().buscarProcessador(bytes[0]);
     }
 
     private boolean ehFrameLongo() {
