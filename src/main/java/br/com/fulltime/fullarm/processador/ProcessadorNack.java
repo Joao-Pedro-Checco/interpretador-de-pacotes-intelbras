@@ -1,10 +1,36 @@
 package br.com.fulltime.fullarm.processador;
 
+import br.com.fulltime.fullarm.pacote.Nack;
 import br.com.fulltime.fullarm.pacote.Pacote;
+import br.com.fulltime.fullarm.pacote.TipoPacote;
+
+import java.util.HashMap;
 
 public class ProcessadorNack implements ProcessadorPacote {
+    private final HashMap<String, String> mapaDescricao = new HashMap<>();
+
+    public ProcessadorNack() {
+        this.inicializarMapa();
+    }
+
     @Override
     public Pacote processar(String hexString) {
-        return null;
+        return new Nack(TipoPacote.NACK, getDescricao(hexString));
+    }
+
+    private String getDescricao(String key) {
+        return mapaDescricao.get(key);
+    }
+
+    private void inicializarMapa() {
+        mapaDescricao.put("E0", "Formato de pacote inválido");
+        mapaDescricao.put("E1", "Senha incorreta");
+        mapaDescricao.put("E2", "Comando inválido");
+        mapaDescricao.put("E3", "Central não particionada");
+        mapaDescricao.put("E4", "Zonas abertas");
+        mapaDescricao.put("E5", "Comando descontinuado");
+        mapaDescricao.put("E6", "Usuário sem permissão para Bypass");
+        mapaDescricao.put("E7", "Usuário sem permissão para desativar");
+        mapaDescricao.put("E8", "Bypass não permitido com a central ativa");
     }
 }
