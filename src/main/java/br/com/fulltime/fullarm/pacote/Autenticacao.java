@@ -16,10 +16,11 @@ public class Autenticacao extends Pacote {
 
     @Override
     public String toString() {
-        return this.tipo + " -> " +
-                "Conexão: " + this.tipoConexao +
-                " | Conta: " + this.numeroDaConta +
-                " | MAC: " + this.enderecoMac +
-                " | Checksum: " + this.checksum;
+        return this.tipo + "{" +
+                "\n  Conexão: " + this.tipoConexao +
+                "\n  Conta: " + this.numeroDaConta +
+                "\n  MAC: " + this.enderecoMac +
+                "\n  Checksum: " + this.checksum +
+                "\n}";
     }
 }

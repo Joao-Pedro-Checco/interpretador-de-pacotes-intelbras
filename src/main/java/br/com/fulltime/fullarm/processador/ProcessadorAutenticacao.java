@@ -5,10 +5,12 @@ import br.com.fulltime.fullarm.pacote.Pacote;
 import br.com.fulltime.fullarm.pacote.TipoConexao;
 import br.com.fulltime.fullarm.pacote.TipoPacote;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ProcessadorAutenticacao implements ProcessadorPacoteFrameLongo {
-    private String[] bytes;
+    private List<String> bytes = new ArrayList<>();
 
     @Override
     public Pacote processar(String hexString) {
@@ -26,11 +28,11 @@ public class ProcessadorAutenticacao implements ProcessadorPacoteFrameLongo {
 
     @Override
     public void particionarBytes(String hexString) {
-        this.bytes = hexString.split(" ");
+        this.bytes = Arrays.asList(hexString.split(" "));
     }
 
     private TipoConexao getTipoConexao() {
-        String byteConexao = this.bytes[2];
+        String byteConexao = this.bytes.get(2);
         switch(byteConexao) {
             case "45":
                 return TipoConexao.ETHERNET;
@@ -44,16 +46,16 @@ public class ProcessadorAutenticacao implements ProcessadorPacoteFrameLongo {
     }
 
     private String getNumeroDaConta() {
-        String[] arrayConta = Arrays.copyOfRange(this.bytes, 3, 5);
+        List<String> arrayConta = this.bytes.subList(3, 5);
         return String.join("", arrayConta);
     }
 
     private String getEnderecoMac() {
-        String[] arrayMac = Arrays.copyOfRange(this.bytes, 5, 8);
+        List<String> arrayMac = this.bytes.subList(5, 8);
         return String.join("", arrayMac);
     }
 
     private String getChecksum() {
-        return this.bytes[this.bytes.length - 1];
+        return this.bytes.get(this.bytes.size() - 1);
     }
 }
