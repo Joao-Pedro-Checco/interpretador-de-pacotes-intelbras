@@ -8,26 +8,29 @@ import br.com.fulltime.fullarm.pacote.TipoPacote;
 import java.util.Arrays;
 
 public class ProcessadorAutenticacao implements ProcessadorPacoteFrameLongo {
+    private String[] bytes;
+
     @Override
     public Pacote processar(String hexString) {
-        return this.montarPacote(hexString);
+        this.particionarBytes(hexString);
+        return this.montarPacote();
     }
 
-    private Pacote montarPacote(String hexString) {
-        TipoConexao conexao = getTipoConexao(hexString);
-        String conta = getNumeroDaConta(hexString);
-        String enderecoMac = getEnderecoMac(hexString);
-        String checksum = getChecksum(hexString);
+    private Pacote montarPacote() {
+        TipoConexao conexao = getTipoConexao();
+        String conta = getNumeroDaConta();
+        String enderecoMac = getEnderecoMac();
+        String checksum = getChecksum();
         return new Autenticacao(TipoPacote.AUTENTICACAO, conexao, conta, enderecoMac, checksum);
     }
 
     @Override
-    public String[] particionarBytes(String hexString) {
-        return hexString.split(" ");
+    public void particionarBytes(String hexString) {
+        this.bytes = hexString.split(" ");
     }
 
-    private TipoConexao getTipoConexao(String hexString) {
-        String byteConexao = particionarBytes(hexString)[2];
+    private TipoConexao getTipoConexao() {
+        String byteConexao = this.bytes[2];
         switch(byteConexao) {
             case "45":
                 return TipoConexao.ETHERNET;
@@ -40,18 +43,17 @@ public class ProcessadorAutenticacao implements ProcessadorPacoteFrameLongo {
         }
     }
 
-    private String getNumeroDaConta(String hexString) {
-        String[] arrayConta = Arrays.copyOfRange(hexString.split(" "), 3, 5);
+    private String getNumeroDaConta() {
+        String[] arrayConta = Arrays.copyOfRange(this.bytes, 3, 5);
         return String.join("", arrayConta);
     }
 
-    private String getEnderecoMac(String hexString) {
-        String[] arrayMac = Arrays.copyOfRange(hexString.split(" "), 5, 8);
+    private String getEnderecoMac() {
+        String[] arrayMac = Arrays.copyOfRange(this.bytes, 5, 8);
         return String.join("", arrayMac);
     }
 
-    private String getChecksum(String hexString) {
-        String[] array = this.particionarBytes(hexString);
-        return array[array.length - 1];
+    private String getChecksum() {
+        return this.bytes[this.bytes.length - 1];
     }
 }

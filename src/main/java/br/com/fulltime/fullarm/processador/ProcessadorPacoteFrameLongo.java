@@ -5,5 +5,5 @@ import br.com.fulltime.fullarm.pacote.Pacote;
 public interface ProcessadorPacoteFrameLongo extends ProcessadorPacote {
     Pacote processar(String hexString);
 
-    String[] particionarBytes(String hexString);
+    void particionarBytes(String hexString);
 }
