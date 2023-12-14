@@ -6,11 +6,11 @@ import br.com.fulltime.fullarm.pacote.TipoPacote;
 
 import java.util.HashMap;
 
-public class ProcessadorNack implements ProcessadorPacote {
+public class ProcessadorNack implements ProcessadorPacoteFrameCurto {
     private final HashMap<String, String> mapaDescricao = new HashMap<>();
 
     public ProcessadorNack() {
-        this.inicializarMapa();
+        this.inicializarMapaDescricao();
     }
 
     @Override
@@ -22,7 +22,7 @@ public class ProcessadorNack implements ProcessadorPacote {
         return mapaDescricao.get(key);
     }
 
-    private void inicializarMapa() {
+    private void inicializarMapaDescricao() {
         mapaDescricao.put("E0", "Formato de pacote inválido");
         mapaDescricao.put("E1", "Senha incorreta");
         mapaDescricao.put("E2", "Comando inválido");

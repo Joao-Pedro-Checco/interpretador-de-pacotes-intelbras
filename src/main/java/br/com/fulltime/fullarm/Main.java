@@ -3,6 +3,7 @@ package br.com.fulltime.fullarm;
 import br.com.fulltime.fullarm.pacote.Pacote;
 import br.com.fulltime.fullarm.pacote.PacoteParser;
 import br.com.fulltime.fullarm.processador.ProcessadorPacote;
+import br.com.fulltime.fullarm.processador.ProcessadorPacoteFrameLongo;
 import br.com.fulltime.fullarm.utils.FormatadorHexStr;
 
 import java.util.Scanner;

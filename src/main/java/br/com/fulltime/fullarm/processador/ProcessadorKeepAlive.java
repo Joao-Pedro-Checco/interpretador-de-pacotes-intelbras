@@ -4,7 +4,7 @@ import br.com.fulltime.fullarm.pacote.KeepAlive;
 import br.com.fulltime.fullarm.pacote.Pacote;
 import br.com.fulltime.fullarm.pacote.TipoPacote;
 
-public class ProcessadorKeepAlive implements ProcessadorPacote {
+public class ProcessadorKeepAlive implements ProcessadorPacoteFrameCurto {
     @Override
     public Pacote processar(String hexString) {
         return new KeepAlive(TipoPacote.KEEP_ALIVE);
