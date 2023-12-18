@@ -40,7 +40,7 @@ public class ProcessadorEvento implements ProcessadorPacoteFrameLongo {
             case "12":
                 return TipoConexao.ETHERNET_IP_2;
             case "21":
-                return TipoConexao.GPRS_1;
+                return TipoConexao.GPRS_IP_1;
             case "22":
                 return TipoConexao.GPRS_IP_2;
             default:

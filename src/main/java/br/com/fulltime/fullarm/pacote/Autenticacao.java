@@ -16,7 +16,7 @@ public class Autenticacao extends Pacote {
 
     @Override
     public String toString() {
-        return this.tipo + "{" +
+        return this.tipo + " {" +
                 "\n  Conexão: " + this.tipoConexao +
                 "\n  Conta: " + this.numeroDaConta +
                 "\n  MAC: " + this.enderecoMac +
