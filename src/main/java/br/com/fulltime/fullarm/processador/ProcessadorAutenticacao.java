@@ -4,11 +4,13 @@ import br.com.fulltime.fullarm.pacote.Autenticacao;
 import br.com.fulltime.fullarm.pacote.Pacote;
 import br.com.fulltime.fullarm.pacote.TipoConexao;
 import br.com.fulltime.fullarm.pacote.TipoPacote;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Service
 public class ProcessadorAutenticacao implements ProcessadorPacoteFrameLongo {
     private List<String> bytes = new ArrayList<>();
 

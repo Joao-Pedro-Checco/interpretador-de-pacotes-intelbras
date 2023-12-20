@@ -2,9 +2,11 @@ package br.com.fulltime.fullarm.pacote;
 
 import br.com.fulltime.fullarm.factory.PacoteFactory;
 import br.com.fulltime.fullarm.processador.ProcessadorPacote;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PacoteParser {
-    private PacoteFactory factory;
+    private final PacoteFactory factory;
 
     public PacoteParser(PacoteFactory factory) {
         this.factory = factory;

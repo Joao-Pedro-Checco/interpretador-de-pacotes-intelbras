@@ -3,9 +3,11 @@ package br.com.fulltime.fullarm.processador;
 import br.com.fulltime.fullarm.pacote.Nack;
 import br.com.fulltime.fullarm.pacote.Pacote;
 import br.com.fulltime.fullarm.pacote.TipoPacote;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 
+@Service
 public class ProcessadorNack implements ProcessadorPacoteFrameCurto {
     private final HashMap<String, String> mapaDescricao = new HashMap<>();
 
