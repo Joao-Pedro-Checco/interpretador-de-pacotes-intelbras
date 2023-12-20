@@ -26,15 +26,18 @@ public class Evento extends Pacote {
 
     @Override
     public String toString() {
-        return this.tipo + " {" +
-                "\n  Conexão: " + this.tipoConexao +
-                "\n  Conta: " + this.conta +
-                "\n  ContactId: " + this.contactId +
-                "\n  Qualificador: " + this.qualificador +
-                "\n  Código Evento: " + this.codigoEvento +
-                "\n  Partição: " + this.particao +
-                "\n  Argumento: " + this.argumento +
-                "\n  Checksum: " + this.checksum +
-                "\n}";
+        return String.format("""
+                %s {
+                  Conexão: %s
+                  Conta: %s
+                  ContactId: %s
+                  Qualificador: %s
+                  Código do Evento: %s
+                  Partição: %s
+                  Argumento: %s
+                  Checksum: %s
+                }
+                """, this.tipo, this.tipoConexao, this.conta, this.contactId,
+                this.qualificador, this.codigoEvento, this.particao, this.argumento, this.checksum);
     }
 }
