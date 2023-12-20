@@ -11,16 +11,13 @@ import java.util.HashMap;
 public class ProcessadorNack implements ProcessadorPacoteFrameCurto {
     private final HashMap<String, String> mapaDescricao = new HashMap<>();
 
-    public ProcessadorNack() {
-        this.inicializarMapaDescricao();
-    }
-
     @Override
     public Pacote processar(String hexString) {
         return new Nack(TipoPacote.NACK, getDescricao(hexString));
     }
 
     private String getDescricao(String key) {
+        if (mapaDescricao.isEmpty()) inicializarMapaDescricao();
         return mapaDescricao.get(key);
     }
 
