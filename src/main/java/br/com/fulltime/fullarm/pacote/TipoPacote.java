@@ -5,5 +5,6 @@ public enum TipoPacote {
     AUTENTICACAO,
     EVENTO,
     KEEP_ALIVE,
-    NACK
+    NACK,
+    COMANDO
 }
