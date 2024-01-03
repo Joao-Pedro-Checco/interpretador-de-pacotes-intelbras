@@ -1,6 +1,6 @@
 package br.com.fulltime.fullarm.pacote;
 
-public class Comando extends Pacote {
+public class Comando extends PacoteGenerico {
     private final String senha;
     private final String subComando;
     private final String descricaoSubComando;

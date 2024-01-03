@@ -1,6 +1,6 @@
 package br.com.fulltime.fullarm.pacote;
 
-public class Evento extends Pacote {
+public class Evento extends PacoteGenerico {
     private TipoConexao tipoConexao;
     private String conta;
     private String contactId;

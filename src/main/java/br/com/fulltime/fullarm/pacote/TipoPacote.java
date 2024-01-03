@@ -6,5 +6,7 @@ public enum TipoPacote {
     EVENTO,
     KEEP_ALIVE,
     NACK,
-    COMANDO
+    COMANDO,
+    STATUS_PARCIAL,
+    STATUS_COMPLETO
 }

@@ -1,7 +1,7 @@
 package br.com.fulltime.fullarm.processador;
 
 import br.com.fulltime.fullarm.pacote.Nack;
-import br.com.fulltime.fullarm.pacote.Pacote;
+import br.com.fulltime.fullarm.pacote.PacoteGenerico;
 import br.com.fulltime.fullarm.pacote.TipoPacote;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ public class ProcessadorNack implements ProcessadorPacoteFrameCurto {
     private final HashMap<String, String> mapaDescricao = new HashMap<>();
 
     @Override
-    public Pacote processar(String hexString) {
+    public PacoteGenerico processar(String hexString) {
         return new Nack(TipoPacote.NACK, getDescricao(hexString));
     }
 

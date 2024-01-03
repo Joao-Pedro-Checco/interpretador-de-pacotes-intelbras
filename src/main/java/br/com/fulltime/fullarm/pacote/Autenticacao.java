@@ -1,6 +1,6 @@
 package br.com.fulltime.fullarm.pacote;
 
-public class Autenticacao extends Pacote {
+public class Autenticacao extends PacoteGenerico {
     private TipoConexao tipoConexao;
     private String numeroDaConta;
     private String enderecoMac;

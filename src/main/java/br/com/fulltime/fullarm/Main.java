@@ -1,7 +1,7 @@
 package br.com.fulltime.fullarm;
 
-import br.com.fulltime.fullarm.pacote.Pacote;
-import br.com.fulltime.fullarm.pacote.PacoteParser;
+import br.com.fulltime.fullarm.pacote.PacoteGenerico;
+import br.com.fulltime.fullarm.pacote.parser.PacoteParser;
 import br.com.fulltime.fullarm.processador.ProcessadorPacote;
 import br.com.fulltime.fullarm.utils.FormatadorHexStr;
 import org.springframework.context.ApplicationContext;
@@ -30,7 +30,7 @@ public class Main {
 //        ValidadorHexString.validar(hexString);
         ProcessadorPacote processador = pacoteParser.identificarPacote(hexString);
 
-        Pacote pacote = processador.processar(hexString);
-        System.out.println(pacote);
+        PacoteGenerico pacoteGenerico = processador.processar(hexString);
+        System.out.println(pacoteGenerico);
     }
 }

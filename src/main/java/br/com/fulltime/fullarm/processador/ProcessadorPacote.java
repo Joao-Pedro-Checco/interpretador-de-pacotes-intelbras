@@ -1,7 +1,7 @@
 package br.com.fulltime.fullarm.processador;
 
-import br.com.fulltime.fullarm.pacote.Pacote;
+import br.com.fulltime.fullarm.pacote.PacoteGenerico;
 
 public interface ProcessadorPacote {
-    Pacote processar(String hexString);
+    PacoteGenerico processar(String hexString);
 }

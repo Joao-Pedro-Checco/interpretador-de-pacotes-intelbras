@@ -1,6 +1,6 @@
 package br.com.fulltime.fullarm.pacote;
 
-public class Nack extends Pacote {
+public class Nack extends PacoteGenerico {
     private final String descricao;
 
     public Nack(TipoPacote tipo, String descricao) {
