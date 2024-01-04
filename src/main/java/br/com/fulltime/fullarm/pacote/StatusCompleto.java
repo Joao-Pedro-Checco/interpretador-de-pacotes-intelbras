@@ -12,7 +12,7 @@ public class StatusCompleto extends PacoteGenerico {
     private String versaoFirmware;
     private StatusParticao statusParticao;
     private List<Particao> particoes;
-    private StatusCentral statusCentral;
+    private InformacoesCentral informacoesCentral;
     private LocalDateTime dataHora;
     private InformacoesEnergia informacoesEnergia;
     private List<Teclado> teclados;
@@ -50,8 +50,8 @@ public class StatusCompleto extends PacoteGenerico {
         this.particoes = particoes;
     }
 
-    public void setStatusCentral(StatusCentral statusCentral) {
-        this.statusCentral = statusCentral;
+    public void setStatusCentral(InformacoesCentral informacoesCentral) {
+        this.informacoesCentral = informacoesCentral;
     }
 
     public void setDataHora(LocalDateTime dataHora) {
@@ -100,5 +100,30 @@ public class StatusCompleto extends PacoteGenerico {
 
     public void setChecksum(String checksum) {
         this.checksum = checksum;
+    }
+
+    @Override
+    public String toString() {
+        return "StatusCompleto{" +
+                "informacoesZonas=" + informacoesZonas +
+                ", modeloCentral=" + modeloCentral +
+                ", versaoFirmware='" + versaoFirmware + '\'' +
+                ", statusParticao=" + statusParticao +
+                ", particoes=" + particoes +
+                ", statusCentral=" + informacoesCentral +
+                ", dataHora=" + dataHora +
+                ", informacoesEnergia=" + informacoesEnergia +
+                ", teclados=" + teclados +
+                ", receptores=" + receptores +
+                ", bateria=" + bateria +
+                ", expansoresPgm=" + expansoresPgm +
+                ", expansoresZonas=" + expansoresZonas +
+                ", informacoesSirene=" + informacoesSirene +
+                ", corteDeLinhaTelefonica=" + corteDeLinhaTelefonica +
+                ", falhaAoComunicarEvento=" + falhaAoComunicarEvento +
+                ", pgms=" + pgms +
+                ", checksum='" + checksum + '\'' +
+                ", tipo=" + tipo +
+                '}';
     }
 }

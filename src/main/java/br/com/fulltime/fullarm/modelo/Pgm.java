@@ -6,4 +6,11 @@ public class Pgm {
     public void setLigada(boolean ligada) {
         this.ligada = ligada;
     }
+
+    @Override
+    public String toString() {
+        return "Pgm{" +
+                "ligada=" + ligada +
+                '}';
+    }
 }

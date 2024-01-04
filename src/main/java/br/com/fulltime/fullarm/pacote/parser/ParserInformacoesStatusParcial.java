@@ -35,7 +35,7 @@ public class ParserInformacoesStatusParcial {
     }
 
     public String buscarVersaoFirmware(String byteVersao) {
-        return String.valueOf(byteVersao.charAt(0) + byteVersao.charAt(1));
+        return String.format("%s.%s", byteVersao.charAt(0), byteVersao.charAt(1));
     }
 
     public StatusParticao buscarStatusParticao(String byteStatusParticao) {
@@ -55,16 +55,23 @@ public class ParserInformacoesStatusParcial {
         return particoes;
     }
 
-    public StatusCentral buscarFuncionamentoDaCentral(String byteFuncionamento) {
-        return StatusCentral.getByValue(byteFuncionamento);
+    public InformacoesCentral buscarFuncionamentoDaCentral(String byteFuncionamento) {
+        InformacoesCentral informacoesCentral = new InformacoesCentral();
+        List<Boolean> bitsStatusCentral = buscarBits(byteFuncionamento);
+        informacoesCentral.setProblemasDetectados(bitsStatusCentral.get(0));
+        informacoesCentral.setSireneLigada(bitsStatusCentral.get(1));
+        informacoesCentral.setExistemZonasDisparadas(bitsStatusCentral.get(2));
+        informacoesCentral.setCentralAtivada(bitsStatusCentral.get(3));
+
+        return informacoesCentral;
     }
 
     public LocalDateTime buscarDataEHora(List<String> bytesDataHora) {
-        int hora = Integer.parseInt(bytesDataHora.get(0));
-        int minutos = Integer.parseInt(bytesDataHora.get(1));
-        int dia = Integer.parseInt(bytesDataHora.get(2));
-        int mes = Integer.parseInt(bytesDataHora.get(3));
-        int ano = Integer.parseInt(bytesDataHora.get(4));
+        int hora = Integer.parseInt(bytesDataHora.get(0), 16);
+        int minutos = Integer.parseInt(bytesDataHora.get(1), 16);
+        int dia = Integer.parseInt(bytesDataHora.get(2), 16);
+        int mes = Integer.parseInt(bytesDataHora.get(3), 16);
+        int ano = Integer.parseInt(bytesDataHora.get(4), 16) + 2000;
 
         return LocalDateTime.of(ano, mes, dia, hora, minutos);
     }
@@ -87,8 +94,8 @@ public class ParserInformacoesStatusParcial {
     public List<Boolean> buscarBits(String _byte) {
         BitSet bitSet = GerenciadorDeBits.byteHexParaBitSet(_byte);
         List<Boolean> listaBool = new ArrayList<>();
-        for (int i = 0; i < bitSet.length(); i++) {
-            listaBool.add(bitSet.get(1));
+        for (int i = 0; i < 8; i++) {
+            listaBool.add(bitSet.get(i));
         }
 
         return listaBool;

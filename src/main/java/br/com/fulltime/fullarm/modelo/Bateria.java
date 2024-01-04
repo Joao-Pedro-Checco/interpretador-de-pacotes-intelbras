@@ -41,4 +41,18 @@ public class Bateria {
     public void setNivelTresPiscar(boolean nivelTresPiscar) {
         this.nivelTresPiscar = nivelTresPiscar;
     }
+
+    @Override
+    public String toString() {
+        return "Bateria{" +
+                "contornoLigado=" + contornoLigado +
+                ", nivelUmLigado=" + nivelUmLigado +
+                ", nivelDoisLigado=" + nivelDoisLigado +
+                ", nivelTresLigado=" + nivelTresLigado +
+                ", contornoPiscar=" + contornoPiscar +
+                ", nivelUmPiscar=" + nivelUmPiscar +
+                ", nivelDoisPiscar=" + nivelDoisPiscar +
+                ", nivelTresPiscar=" + nivelTresPiscar +
+                '}';
+    }
 }

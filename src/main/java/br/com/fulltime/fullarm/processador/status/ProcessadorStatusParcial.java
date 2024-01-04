@@ -35,6 +35,8 @@ public class ProcessadorStatusParcial implements ProcessadorPacoteFrameLongo {
     }
 
     private void montarStatus(List<String> bytes, StatusParcial statusParcial) {
+        System.out.println("Montando status parcial...");
+        System.out.println("===================================================================================");
         List<String> bytesStatus = bytes.subList(2, bytes.size() - 1);
         List<String> bytesZonasAbertas = bytesStatus.subList(0, 6);
         List<String> bytesZonasVioladas = bytesStatus.subList(6, 12);
@@ -45,56 +47,87 @@ public class ProcessadorStatusParcial implements ProcessadorPacoteFrameLongo {
         InformacoesZonas informacoesZonas =
                 parserInformacoesStatusParcial.buscarInformacoesZonas(bytesZonasAbertas, bytesZonasVioladas,
                         bytesZonasAnuladas, bytesZonasComTamper, bytesZonasComCurtoCircuito, bytesZonasStatusBateria);
+        System.out.println("Adicionando Informações das zonas: " + informacoesZonas);
         statusParcial.setInformacoesZonas(informacoesZonas);
+        System.out.println("===================================================================================");
 
         ModeloCentral modeloDaCentral = parserInformacoesStatusParcial.buscarModeloDaCentral(bytesStatus.get(18));
+        System.out.println("Adicionando Modelo da Central: " + modeloDaCentral);
         statusParcial.setModeloCentral(modeloDaCentral);
+        System.out.println("===================================================================================");
 
         String versaoFirmware = parserInformacoesStatusParcial.buscarVersaoFirmware(bytesStatus.get(19));
+        System.out.println("Adicionando Versão do Firmware: " + versaoFirmware);
         statusParcial.setVersaoFirmware(versaoFirmware);
+        System.out.println("===================================================================================");
 
         StatusParticao statusParticao = parserInformacoesStatusParcial.buscarStatusParticao(bytesStatus.get(20));
+        System.out.println("Adicionando Status de partição: " + statusParticao);
         statusParcial.setStatusParticao(statusParticao);
+        System.out.println("===================================================================================");
 
         String byteParticoes = bytesStatus.get(21);
         List<Particao> particoes = parserInformacoesStatusParcial.buscarParticoes(byteParticoes);
+        System.out.println("Adicionando Partições: " + particoes);
         statusParcial.setParticoes(particoes);
+        System.out.println("===================================================================================");
 
-        StatusCentral statusCentral = parserInformacoesStatusParcial.buscarFuncionamentoDaCentral(bytesStatus.get(22));
-        statusParcial.setStatusCentral(statusCentral);
+        InformacoesCentral informacoesCentral = parserInformacoesStatusParcial.buscarFuncionamentoDaCentral(bytesStatus.get(22));
+        System.out.println("Adicionando Informações da Central: " + informacoesCentral);
+        statusParcial.setStatusCentral(informacoesCentral);
+        System.out.println("===================================================================================");
 
         LocalDateTime dataHora = parserInformacoesStatusParcial.buscarDataEHora(bytesStatus.subList(23, 28));
+        System.out.println("Adicionando Data e Hora: " + dataHora);
         statusParcial.setDataHora(dataHora);
+        System.out.println("===================================================================================");
 
         InformacoesEnergia informacoesEnergia = parserInformacoesStatusParcial.buscarStatusEnergia(bytesStatus.get(28));
+        System.out.println("Adicionando Informações de energia: " + informacoesEnergia);
         statusParcial.setInformacoesEnergia(informacoesEnergia);
+        System.out.println("===================================================================================");
 
         String byteProblemaTeclados = bytesStatus.get(29);
         String byteTamperTeclados = bytesStatus.get(31);
         List<Teclado> teclados = parserInformacoesStatusParcial.buscarTeclados(byteProblemaTeclados, byteTamperTeclados);
+        System.out.println("Adicionando Teclados: " + teclados);
         statusParcial.setTeclados(teclados);
+        System.out.println("===================================================================================");
 
         String byteProblemaReceptores = bytesStatus.get(29);
         List<Receptor> receptores = parserInformacoesStatusParcial.buscarReceptores(byteProblemaReceptores);
+        System.out.println("Adicionando Receptores: " + receptores);
         statusParcial.setReceptores(receptores);
+        System.out.println("===================================================================================");
 
         Bateria bateria = parserInformacoesStatusParcial.buscarBateria(bytesStatus.get(30));
+        System.out.println("Adicionando Informações da Bateria: " + bateria);
         statusParcial.setBateria(bateria);
+        System.out.println("===================================================================================");
 
         String byteSireneLigada = bytesStatus.get(37);
         String byteInfoSirene = bytesStatus.get(32);
         InformacoesSirene informacoesSirene =
                 parserInformacoesStatusParcial.buscarInformacoesSirene(byteSireneLigada, byteInfoSirene);
+        System.out.println("Adicionando Informações da Sirene: " + informacoesSirene);
         statusParcial.setInformacoesSirene(informacoesSirene);
+        System.out.println("===================================================================================");
 
         List<Boolean> problemasComunicacao = parserInformacoesStatusParcial.buscarBits(bytesStatus.get(32));
+        System.out.println("Adicionando Informações de Problemas de Comunicação: Corte de linha telefônica=" + problemasComunicacao.get(2) + ", Falha ao comunicar evento=" + problemasComunicacao.get(3));
         statusParcial.setCorteDeLinhaTelefonica(problemasComunicacao.get(2));
         statusParcial.setFalhaAoComunicarEvento(problemasComunicacao.get(3));
+        System.out.println("===================================================================================");
 
         String byteInformacaoPgm = bytesStatus.get(37);
         List<Pgm> pgms = parserInformacoesStatusParcial.buscarPgms(byteInformacaoPgm);
+        System.out.println("Adicionando Pmgs: " + pgms);
         statusParcial.setPgms(pgms);
+        System.out.println("===================================================================================");
 
-        statusParcial.setChecksum(bytes.get(bytes.size() - 1));
+        String checksum = bytes.get((bytes.size() - 1));
+        System.out.println("Adicionando checksum: " + checksum);
+        statusParcial.setChecksum(checksum);
+        System.out.println("===================================================================================");
     }
 }

@@ -60,8 +60,13 @@ public class ParserInformacoesStatusCompleto {
     private List<Boolean> buscarBits(String _byte) {
         BitSet bitSet = GerenciadorDeBits.byteHexParaBitSet(_byte);
         List<Boolean> listaBool = new ArrayList<>();
+
+        if (bitSet.isEmpty()) {
+            return new ArrayList<>(Collections.nCopies(8, false));
+        }
+
         for (int i = 0; i < bitSet.length(); i++) {
-            listaBool.add(bitSet.get(1));
+            listaBool.add(bitSet.get(i));
         }
 
         return listaBool;

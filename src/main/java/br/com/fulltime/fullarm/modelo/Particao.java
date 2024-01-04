@@ -10,4 +10,11 @@ public class Particao {
     public void setAtivada(boolean ativada) {
         this.ativada = ativada;
     }
+
+    @Override
+    public String toString() {
+        return "Particao{" +
+                "ativada=" + ativada +
+                '}';
+    }
 }

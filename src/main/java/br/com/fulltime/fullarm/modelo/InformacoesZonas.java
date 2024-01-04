@@ -33,4 +33,16 @@ public class InformacoesZonas {
     public void setZonasComBateriaBaixaNoSensor(List<Integer> zonasComBateriaBaixaNoSensor) {
         this.zonasComBateriaBaixaNoSensor = zonasComBateriaBaixaNoSensor;
     }
+
+    @Override
+    public String toString() {
+        return "InformacoesZonas{" +
+                "zonasAbertas=" + zonasAbertas +
+                ", zonasVioladas=" + zonasVioladas +
+                ", zonasAnuladas=" + zonasAnuladas +
+                ", zonasComTamper=" + zonasComTamper +
+                ", zonasComCurtoCircuito=" + zonasComCurtoCircuito +
+                ", zonasComBateriaBaixaNoSensor=" + zonasComBateriaBaixaNoSensor +
+                '}';
+    }
 }

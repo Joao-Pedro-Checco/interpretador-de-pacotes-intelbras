@@ -16,4 +16,13 @@ public class InformacoesSirene {
     public void setCurtoCircuitoNoFioDaSirene(boolean curtoCircuitoNoFioDaSirene) {
         this.curtoCircuitoNoFioDaSirene = curtoCircuitoNoFioDaSirene;
     }
+
+    @Override
+    public String toString() {
+        return "InformacoesSirene{" +
+                "sireneLigada=" + sireneLigada +
+                ", corteDoFioDaSirene=" + corteDoFioDaSirene +
+                ", curtoCircuitoNoFioDaSirene=" + curtoCircuitoNoFioDaSirene +
+                '}';
+    }
 }

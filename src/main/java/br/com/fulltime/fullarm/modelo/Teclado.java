@@ -11,4 +11,12 @@ public class Teclado {
     public void setTamper(boolean tamper) {
         this.tamper = tamper;
     }
+
+    @Override
+    public String toString() {
+        return "Teclado{" +
+                "problema=" + problema +
+                ", tamper=" + tamper +
+                '}';
+    }
 }

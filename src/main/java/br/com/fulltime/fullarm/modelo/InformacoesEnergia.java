@@ -26,4 +26,15 @@ public class InformacoesEnergia {
     public void setSobrecargaNaSaidaAuxiliar(boolean sobrecargaNaSaidaAuxiliar) {
         this.sobrecargaNaSaidaAuxiliar = sobrecargaNaSaidaAuxiliar;
     }
+
+    @Override
+    public String toString() {
+        return "InformacoesEnergia{" +
+                "faltaDeRedeEletrica=" + faltaDeRedeEletrica +
+                ", bateriaBaixa=" + bateriaBaixa +
+                ", bateriaAusenteOuInvertida=" + bateriaAusenteOuInvertida +
+                ", bateriaEmCurtoCircuito=" + bateriaEmCurtoCircuito +
+                ", sobrecargaNaSaidaAuxiliar=" + sobrecargaNaSaidaAuxiliar +
+                '}';
+    }
 }

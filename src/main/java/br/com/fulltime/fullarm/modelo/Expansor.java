@@ -6,4 +6,11 @@ public class Expansor {
     public void setProblema(boolean problema) {
         this.problema = problema;
     }
+
+    @Override
+    public String toString() {
+        return "Expansor{" +
+                "problema=" + problema +
+                '}';
+    }
 }
