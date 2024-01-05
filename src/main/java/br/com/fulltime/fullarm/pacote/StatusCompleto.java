@@ -26,8 +26,8 @@ public class StatusCompleto extends PacoteGenerico {
     private List<Pgm> pgms;
     private String checksum;
 
-    public StatusCompleto(TipoPacote tipo) {
-        super(tipo);
+    public StatusCompleto() {
+        super(TipoPacote.STATUS_COMPLETO);
     }
 
     public void setInformacoesZonas(InformacoesZonas informacoesZonas) {

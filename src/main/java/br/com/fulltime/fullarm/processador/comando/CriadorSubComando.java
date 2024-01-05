@@ -15,7 +15,7 @@ public class CriadorSubComando {
             case BYPASS -> createBypass(bytes);
             case CONTROLE_DE_PGM -> createControlePgm(bytes);
             case PANICO -> createPanico(bytes);
-            default -> throw new IllegalArgumentException("Tipo de comando desconhecido: " + tipo);
+            default -> "Desconhecido";
         };
     }
 
@@ -71,7 +71,7 @@ public class CriadorSubComando {
             case "01" -> "Pânico audível";
             case "02" -> "Emergência médica";
             case "03" -> "Incêndio";
-            default -> throw new IllegalArgumentException("Byte de sub comando inválido: " + _byte);
+            default -> "Desconhecido";
         };
     }
 

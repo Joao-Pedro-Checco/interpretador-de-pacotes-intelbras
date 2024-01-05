@@ -6,8 +6,8 @@ public class Autenticacao extends PacoteGenerico {
     private String enderecoMac;
     private String checksum;
 
-    public Autenticacao(TipoPacote tipo, TipoConexao tipoConexao, String numeroDaConta, String enderecoMac, String checksum) {
-        super(tipo);
+    public Autenticacao(TipoConexao tipoConexao, String numeroDaConta, String enderecoMac, String checksum) {
+        super(TipoPacote.AUTENTICACAO);
         this.tipoConexao = tipoConexao;
         this.numeroDaConta = numeroDaConta;
         this.enderecoMac = enderecoMac;

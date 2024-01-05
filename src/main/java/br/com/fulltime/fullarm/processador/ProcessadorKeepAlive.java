@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 public class ProcessadorKeepAlive implements ProcessadorPacoteFrameCurto {
     @Override
     public PacoteGenerico processar(String hexString) {
-        return new KeepAlive(TipoPacote.KEEP_ALIVE);
+        System.out.println("Processando mensagem Keep Alive...");
+        System.out.println("===================================================================================");
+
+        return new KeepAlive();
     }
 }

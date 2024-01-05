@@ -15,7 +15,45 @@ import java.util.stream.Collectors;
 public class ProcessadorEvento implements ProcessadorPacoteFrameLongo {
     @Override
     public PacoteGenerico processar(String hexString) {
-        return montarPacote(hexString);
+        List<String> bytes = particionarBytes(hexString);
+
+        System.out.println("Montando pacote de Evento...");
+        System.out.println("===================================================================================");
+
+        TipoConexao conexao = getConexao(bytes);
+        System.out.println("Adicionando Tipo de Conexão: " + conexao);
+        System.out.println("===================================================================================");
+
+        String conta = getConta(bytes);
+        System.out.println("Adicionando Número da conta: " + conta);
+        System.out.println("===================================================================================");
+
+        String contactId = getContactId(bytes);
+        System.out.println("Adicionando Contact Id: " + contactId);
+        System.out.println("===================================================================================");
+
+        String qualificador = getQualificador(bytes);
+        System.out.println("Adicionando Qualificador: " + qualificador);
+        System.out.println("===================================================================================");
+
+        String codigoEvento = getCodigoEvento(bytes);
+        System.out.println("Adicionando Código do Evento: " + codigoEvento);
+        System.out.println("===================================================================================");
+
+        String particao = getParticao(bytes);
+        System.out.println("Adicionando Partição: " + particao);
+        System.out.println("===================================================================================");
+
+        String argumento = getArgumento(bytes);
+        System.out.println("Adicionando Argumento: " + argumento);
+        System.out.println("===================================================================================");
+
+        String checksum = getChecksum(bytes);
+        System.out.println("Adicionando checksum: " + checksum);
+        System.out.println("===================================================================================");
+
+        return new Evento(conexao, conta, contactId,
+                qualificador, codigoEvento, particao, argumento, checksum);
     }
 
     @Override
@@ -23,24 +61,9 @@ public class ProcessadorEvento implements ProcessadorPacoteFrameLongo {
         return Arrays.asList(hexString.split(" "));
     }
 
-    private PacoteGenerico montarPacote(String hexString) {
-        List<String> bytes = particionarBytes(hexString);
-        return new Evento(
-                TipoPacote.EVENTO, getConexao(bytes), getConta(bytes),
-                getContactId(bytes), getQualificador(bytes), getCodigoEvento(bytes),
-                getParticao(bytes), getArgumento(bytes), getChecksum(bytes)
-        );
-    }
-
     private TipoConexao getConexao(List<String> bytes) {
         String byteConexao = bytes.get(2);
-        return switch (byteConexao) {
-            case "11" -> TipoConexao.ETHERNET_IP_1;
-            case "12" -> TipoConexao.ETHERNET_IP_2;
-            case "21" -> TipoConexao.GPRS_IP_1;
-            case "22" -> TipoConexao.GPRS_IP_2;
-            default -> throw new IllegalArgumentException("Tipo de conexão desconhecido: " + byteConexao);
-        };
+        return TipoConexao.getByValue(byteConexao);
     }
 
     private String getConta(List<String> bytes) {
@@ -60,7 +83,7 @@ public class ProcessadorEvento implements ProcessadorPacoteFrameLongo {
         return switch (byteQualificador) {
             case "01" -> "Evento";
             case "03" -> "Restauração";
-            default -> throw new IllegalArgumentException("Qualificador desconhecido: " + byteQualificador);
+            default -> "Qualificador desconhecido: " + byteQualificador;
         };
     }
 

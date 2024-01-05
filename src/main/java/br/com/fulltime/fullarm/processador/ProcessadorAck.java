@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 public class ProcessadorAck implements ProcessadorPacoteFrameCurto {
     @Override
     public PacoteGenerico processar(String hexString) {
-        return new Ack(TipoPacote.ACK);
+        System.out.println("Montando pacote ACK...");
+        System.out.println("===================================================================================");
+
+        return new Ack();
     }
 }

@@ -23,8 +23,7 @@ public class ProcessadorStatusParcial implements ProcessadorPacoteFrameLongo {
     @Override
     public PacoteGenerico processar(String hexString) {
         List<String> bytes = particionarBytes(hexString);
-        TipoPacote tipoPacote = TipoPacote.STATUS_PARCIAL;
-        StatusParcial status = new StatusParcial(tipoPacote);
+        StatusParcial status = new StatusParcial();
         montarStatus(bytes, status);
         return status;
     }

@@ -1,8 +1,8 @@
 package br.com.fulltime.fullarm.pacote;
 
 public class KeepAlive extends PacoteGenerico {
-    public KeepAlive(TipoPacote tipo) {
-        super(tipo);
+    public KeepAlive() {
+        super(TipoPacote.KEEP_ALIVE);
     }
 
     @Override

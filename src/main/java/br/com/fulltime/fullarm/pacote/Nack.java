@@ -3,8 +3,8 @@ package br.com.fulltime.fullarm.pacote;
 public class Nack extends PacoteGenerico {
     private final String descricao;
 
-    public Nack(TipoPacote tipo, String descricao) {
-        super(tipo);
+    public Nack(String descricao) {
+        super(TipoPacote.NACK);
         this.descricao = descricao;
     }
 

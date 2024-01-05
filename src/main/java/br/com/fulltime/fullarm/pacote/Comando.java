@@ -6,8 +6,8 @@ public class Comando extends PacoteGenerico {
     private final String descricaoSubComando;
     private final String checksum;
 
-    public Comando(TipoPacote tipo, String senha, String subComando, String descricaoSubComando, String checksum) {
-        super(tipo);
+    public Comando(String senha, String subComando, String descricaoSubComando, String checksum) {
+        super(TipoPacote.COMANDO);
         this.senha = senha;
         this.subComando = subComando;
         this.descricaoSubComando = descricaoSubComando;
@@ -16,13 +16,12 @@ public class Comando extends PacoteGenerico {
 
     @Override
     public String toString() {
-        return String.format("""
-                %s {
-                  Senha: %s
-                  Sub comando: %s
-                  Descrição do sub comando: %s
-                  Checksum: %s
-                }
-                """, this.tipo, this.senha, this.subComando, this.descricaoSubComando, this.checksum);
+        return "Comando{" +
+                "senha='" + senha + '\'' +
+                ", subComando='" + subComando + '\'' +
+                ", descricaoSubComando='" + descricaoSubComando + '\'' +
+                ", checksum='" + checksum + '\'' +
+                ", tipo=" + tipo +
+                '}';
     }
 }

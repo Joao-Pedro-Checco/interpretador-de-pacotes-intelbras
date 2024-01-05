@@ -3,7 +3,6 @@ package br.com.fulltime.fullarm.processador.status;
 import br.com.fulltime.fullarm.modelo.*;
 import br.com.fulltime.fullarm.pacote.PacoteGenerico;
 import br.com.fulltime.fullarm.pacote.StatusCompleto;
-import br.com.fulltime.fullarm.pacote.TipoPacote;
 import br.com.fulltime.fullarm.pacote.parser.ParserInformacoesStatusCompleto;
 import br.com.fulltime.fullarm.pacote.parser.ParserInformacoesStatusParcial;
 import br.com.fulltime.fullarm.processador.ProcessadorPacoteFrameLongo;
@@ -26,8 +25,7 @@ public class ProcessadorStatusCompleto implements ProcessadorPacoteFrameLongo {
     @Override
     public PacoteGenerico processar(String hexString) {
         List<String> bytes = particionarBytes(hexString);
-        TipoPacote tipoPacote = TipoPacote.STATUS_COMPLETO;
-        StatusCompleto status = new StatusCompleto(tipoPacote);
+        StatusCompleto status = new StatusCompleto();
         montarStatus(bytes, status);
         return status;
     }

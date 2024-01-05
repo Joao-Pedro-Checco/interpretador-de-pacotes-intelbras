@@ -10,10 +10,10 @@ public class Evento extends PacoteGenerico {
     private String argumento;
     private String checksum;
 
-    public Evento(TipoPacote tipo, TipoConexao tipoConexao, String conta,
+    public Evento(TipoConexao tipoConexao, String conta,
                   String contactId, String qualificador, String codigoEvento,
                   String particao, String argumento, String checksum) {
-        super(tipo);
+        super(TipoPacote.EVENTO);
         this.tipoConexao = tipoConexao;
         this.conta = conta;
         this.contactId = contactId;

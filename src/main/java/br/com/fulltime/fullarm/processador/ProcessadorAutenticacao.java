@@ -14,16 +14,28 @@ import java.util.List;
 public class ProcessadorAutenticacao implements ProcessadorPacoteFrameLongo {
     @Override
     public PacoteGenerico processar(String hexString) {
-        return montarPacote(hexString);
-    }
-
-    private PacoteGenerico montarPacote(String hexString) {
         List<String> bytes = particionarBytes(hexString);
+
+        System.out.println("Montando pacote de Autenticação...");
+        System.out.println("===================================================================================");
+
         TipoConexao conexao = getTipoConexao(bytes);
+        System.out.println("Adicionando Tipo de Conexão: " + conexao);
+        System.out.println("===================================================================================");
+
         String conta = getNumeroDaConta(bytes);
+        System.out.println("Adicionando Número da conta: " + conta);
+        System.out.println("===================================================================================");
+
         String enderecoMac = getEnderecoMac(bytes);
+        System.out.println("Adicionando Endereço MAC: " + enderecoMac);
+        System.out.println("===================================================================================");
+
         String checksum = getChecksum(bytes);
-        return new Autenticacao(TipoPacote.AUTENTICACAO, conexao, conta, enderecoMac, checksum);
+        System.out.println("Adicionando checksum: " + checksum);
+        System.out.println("===================================================================================");
+
+        return new Autenticacao(conexao, conta, enderecoMac, checksum);
     }
 
     @Override
@@ -33,12 +45,7 @@ public class ProcessadorAutenticacao implements ProcessadorPacoteFrameLongo {
 
     private TipoConexao getTipoConexao(List<String> bytes) {
         String byteConexao = bytes.get(2);
-        return switch (byteConexao) {
-            case "45" -> TipoConexao.ETHERNET;
-            case "47" -> TipoConexao.GPRS_1;
-            case "48" -> TipoConexao.GPRS_2;
-            default -> throw new IllegalArgumentException("Tipo de conexão desconhecido: " + byteConexao);
-        };
+        return TipoConexao.getByValue(byteConexao);
     }
 
     private String getNumeroDaConta(List<String> bytes) {

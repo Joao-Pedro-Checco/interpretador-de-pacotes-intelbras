@@ -1,8 +1,8 @@
 package br.com.fulltime.fullarm.pacote;
 
 public class Ack extends PacoteGenerico {
-    public Ack(TipoPacote tipo) {
-        super(tipo);
+    public Ack() {
+        super(TipoPacote.ACK);
     }
 
     @Override

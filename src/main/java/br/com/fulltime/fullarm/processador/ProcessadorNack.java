@@ -13,7 +13,14 @@ public class ProcessadorNack implements ProcessadorPacoteFrameCurto {
 
     @Override
     public PacoteGenerico processar(String hexString) {
-        return new Nack(TipoPacote.NACK, getDescricao(hexString));
+        System.out.println("Montando Pacote Nack...");
+        System.out.println("===================================================================================");
+
+        String descricao = getDescricao(hexString);
+        System.out.println("Adicionando Descrição: " + descricao);
+        System.out.println("===================================================================================");
+
+        return new Nack(descricao);
     }
 
     private String getDescricao(String key) {

@@ -24,8 +24,8 @@ public class StatusParcial extends PacoteGenerico {
     private List<Pgm> pgms;
     private String checksum;
 
-    public StatusParcial(TipoPacote tipo) {
-        super(tipo);
+    public StatusParcial() {
+        super(TipoPacote.STATUS_PARCIAL);
     }
 
     public void setInformacoesZonas(InformacoesZonas informacoesZonas) {
