@@ -1,8 +1,11 @@
 package br.com.fulltime.fullarm.processador.comando;
 
-import br.com.fulltime.fullarm.pacote.Comando;
-import br.com.fulltime.fullarm.pacote.PacoteGenerico;
+import br.com.fulltime.fullarm.constantes.TipoComando;
+import br.com.fulltime.fullarm.modelo.pacote.comando.Comando;
+import br.com.fulltime.fullarm.modelo.pacote.PacoteGenerico;
+import br.com.fulltime.fullarm.modelo.pacote.comando.subcomando.SubComando;
 import br.com.fulltime.fullarm.processador.ProcessadorPacoteFrameLongo;
+import br.com.fulltime.fullarm.processador.comando.subcomando.ProcessadorSubComando;
 import br.com.fulltime.fullarm.utils.FormatadorHexStr;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +15,12 @@ import java.util.List;
 
 @Service
 public class ProcessadorComando implements ProcessadorPacoteFrameLongo {
-    private final HandlerComando hanlderComando;
+    private final ParserSubComando parserSubComando;
+    private final SubComandoFactory subComandoFactory;
 
-    public ProcessadorComando(HandlerComando handlerComando) {
-        this.hanlderComando = handlerComando;
+    public ProcessadorComando(ParserSubComando parserSubComando, SubComandoFactory subComandoFactory) {
+        this.parserSubComando = parserSubComando;
+        this.subComandoFactory = subComandoFactory;
     }
 
     @Override
@@ -27,21 +32,18 @@ public class ProcessadorComando implements ProcessadorPacoteFrameLongo {
 
         String senha = getSenha(bytes);
         System.out.println("Adicionando Senha: " + senha);
-        System.out.println("===================================================================================");
 
         String comando = getComando(bytes);
         System.out.println("Adicionando o comando: " + comando);
-        System.out.println("===================================================================================");
 
-        String descricaoComando = getDescricaoComando(bytes);
-        System.out.println("Adicionando Dscrição do comando: " + descricaoComando);
-        System.out.println("===================================================================================");
+        SubComando subComando = getSubComando(bytes);
+        System.out.println("Adicionando SubComando: " + subComando);
 
         String checksum = getChecksum(bytes);
         System.out.println("Adicionando checksum: " + checksum);
         System.out.println("===================================================================================");
 
-        return new Comando(senha, comando, descricaoComando, checksum);
+        return new Comando(senha, comando, subComando, checksum);
     }
 
     @Override
@@ -64,8 +66,11 @@ public class ProcessadorComando implements ProcessadorPacoteFrameLongo {
         return String.join(" ", bytesSenha);
     }
 
-    private String getDescricaoComando(List<String> bytes) {
-        return hanlderComando.montarComando(getComando(bytes));
+    private SubComando getSubComando(List<String> bytes) {
+        String comando = getComando(bytes);
+        TipoComando identificador = parserSubComando.identificarTipoComando(comando);
+        ProcessadorSubComando processadorSubComando = subComandoFactory.buscarProcessador(identificador);
+        return processadorSubComando.processar(comando);
     }
 
     private String getChecksum(List<String> bytes) {

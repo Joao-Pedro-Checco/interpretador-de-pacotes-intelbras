@@ -6,26 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="42bd39f3-2332-41ff-8bde-faaa273d3b32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/Ack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/Ack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/Autenticacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/Autenticacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/Comando.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/Comando.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/KeepAlive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/KeepAlive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/Nack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/Nack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/StatusCompleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/StatusCompleto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/StatusParcial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/StatusParcial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/TipoComando.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/TipoComando.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/TipoConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/TipoConexao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/TipoPacote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/pacote/TipoPacote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/ProcessadorAck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/ProcessadorAck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/ProcessadorAutenticacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/ProcessadorAutenticacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/ProcessadorEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/ProcessadorEvento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/ProcessadorKeepAlive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/ProcessadorKeepAlive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/ProcessadorNack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/ProcessadorNack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/comando/CriadorSubComando.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/comando/CriadorSubComando.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/comando/CriadorSubComando.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/comando/HandlerComando.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/comando/ProcessadorComando.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/comando/ProcessadorComando.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/status/ProcessadorStatusCompleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/status/ProcessadorStatusCompleto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/status/ProcessadorStatusParcial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fulltime/fullarm/processador/status/ProcessadorStatusParcial.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="AnnotationType" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -96,6 +79,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="br.com.fulltime.fullarm.modelo.pacote.comando.subcomando" />
+      <recent name="br.com.fulltime.fullarm.constantes" />
       <recent name="br.com.fulltime.fullarm.processador" />
       <recent name="br.com.fulltime.fullarm.utils" />
       <recent name="br.com.fulltime.fullarm.pacote" />
@@ -146,12 +131,28 @@
       <workItem from="1702998758730" duration="2644000" />
       <workItem from="1703070049827" duration="15610000" />
       <workItem from="1703156427576" duration="15262000" />
-      <workItem from="1704452212412" duration="801000" />
+      <workItem from="1704452212412" duration="1656000" />
+      <workItem from="1704453883446" duration="35000" />
+      <workItem from="1704453973453" duration="200000" />
+      <workItem from="1704454234312" duration="6982000" />
+      <workItem from="1704462164800" duration="8395000" />
+      <workItem from="1704710834341" duration="7864000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
