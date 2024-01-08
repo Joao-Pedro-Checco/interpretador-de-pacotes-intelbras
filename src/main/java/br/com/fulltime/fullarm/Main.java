@@ -1,10 +1,10 @@
 package br.com.fulltime.fullarm;
 
-import br.com.fulltime.fullarm.modelo.pacote.PacoteGenerico;
+import br.com.fulltime.fullarm.modelo.PacoteGenerico;
 import br.com.fulltime.fullarm.constantes.TipoPacote;
-import br.com.fulltime.fullarm.modelo.pacote.factory.PacoteFactory;
-import br.com.fulltime.fullarm.modelo.pacote.parser.PacoteParser;
-import br.com.fulltime.fullarm.processador.ProcessadorPacote;
+import br.com.fulltime.fullarm.processador.factory.PacoteFactory;
+import br.com.fulltime.fullarm.processador.parser.PacoteParser;
+import br.com.fulltime.fullarm.processador.pacote.ProcessadorPacote;
 import br.com.fulltime.fullarm.utils.FormatadorHexStr;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
