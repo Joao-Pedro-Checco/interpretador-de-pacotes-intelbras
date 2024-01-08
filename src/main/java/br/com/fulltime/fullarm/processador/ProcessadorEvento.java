@@ -1,12 +1,10 @@
 package br.com.fulltime.fullarm.processador;
 
-import br.com.fulltime.fullarm.pacote.Evento;
-import br.com.fulltime.fullarm.pacote.PacoteGenerico;
-import br.com.fulltime.fullarm.pacote.TipoConexao;
-import br.com.fulltime.fullarm.pacote.TipoPacote;
+import br.com.fulltime.fullarm.modelo.pacote.Evento;
+import br.com.fulltime.fullarm.modelo.pacote.PacoteGenerico;
+import br.com.fulltime.fullarm.constantes.TipoConexao;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,31 +20,24 @@ public class ProcessadorEvento implements ProcessadorPacoteFrameLongo {
 
         TipoConexao conexao = getConexao(bytes);
         System.out.println("Adicionando Tipo de Conexão: " + conexao);
-        System.out.println("===================================================================================");
 
         String conta = getConta(bytes);
         System.out.println("Adicionando Número da conta: " + conta);
-        System.out.println("===================================================================================");
 
         String contactId = getContactId(bytes);
         System.out.println("Adicionando Contact Id: " + contactId);
-        System.out.println("===================================================================================");
 
         String qualificador = getQualificador(bytes);
         System.out.println("Adicionando Qualificador: " + qualificador);
-        System.out.println("===================================================================================");
 
         String codigoEvento = getCodigoEvento(bytes);
         System.out.println("Adicionando Código do Evento: " + codigoEvento);
-        System.out.println("===================================================================================");
 
         String particao = getParticao(bytes);
         System.out.println("Adicionando Partição: " + particao);
-        System.out.println("===================================================================================");
 
         String argumento = getArgumento(bytes);
         System.out.println("Adicionando Argumento: " + argumento);
-        System.out.println("===================================================================================");
 
         String checksum = getChecksum(bytes);
         System.out.println("Adicionando checksum: " + checksum);

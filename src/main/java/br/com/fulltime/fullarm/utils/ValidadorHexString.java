@@ -1,8 +1,9 @@
 package br.com.fulltime.fullarm.utils;
 
+import br.com.fulltime.fullarm.constantes.TipoPacote;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class ValidadorHexString {
@@ -26,12 +27,13 @@ public class ValidadorHexString {
     private static boolean byteIdentificadorEhValido(String hexString) {
         List<String> bytesValidos = new ArrayList<>();
         String[] hexArray = hexString.split(" ");
+        List<String> identificadores = Arrays.stream(TipoPacote.values()).map(TipoPacote::getIdentificador).toList();
         if (hexArray.length > 1) {
-            Collections.addAll(bytesValidos, "B0", "94", "E9");
+            bytesValidos.addAll(identificadores);
             return bytesValidos.contains(hexArray[1]);
         }
 
-        Collections.addAll(bytesValidos, "E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "FE", "F7");
+        bytesValidos.addAll(identificadores);
         return bytesValidos.contains(hexString);
     }
 

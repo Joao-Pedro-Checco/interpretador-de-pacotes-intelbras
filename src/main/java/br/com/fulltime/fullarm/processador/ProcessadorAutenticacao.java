@@ -1,12 +1,10 @@
 package br.com.fulltime.fullarm.processador;
 
-import br.com.fulltime.fullarm.pacote.Autenticacao;
-import br.com.fulltime.fullarm.pacote.PacoteGenerico;
-import br.com.fulltime.fullarm.pacote.TipoConexao;
-import br.com.fulltime.fullarm.pacote.TipoPacote;
+import br.com.fulltime.fullarm.modelo.pacote.Autenticacao;
+import br.com.fulltime.fullarm.modelo.pacote.PacoteGenerico;
+import br.com.fulltime.fullarm.constantes.TipoConexao;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,15 +19,12 @@ public class ProcessadorAutenticacao implements ProcessadorPacoteFrameLongo {
 
         TipoConexao conexao = getTipoConexao(bytes);
         System.out.println("Adicionando Tipo de Conexão: " + conexao);
-        System.out.println("===================================================================================");
 
         String conta = getNumeroDaConta(bytes);
         System.out.println("Adicionando Número da conta: " + conta);
-        System.out.println("===================================================================================");
 
         String enderecoMac = getEnderecoMac(bytes);
         System.out.println("Adicionando Endereço MAC: " + enderecoMac);
-        System.out.println("===================================================================================");
 
         String checksum = getChecksum(bytes);
         System.out.println("Adicionando checksum: " + checksum);

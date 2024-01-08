@@ -1,4 +1,4 @@
-package br.com.fulltime.fullarm.pacote;
+package br.com.fulltime.fullarm.constantes;
 
 public enum TipoComando {
     ATIVACAO_DA_CENTRAL("41", "Ativação da Central"),

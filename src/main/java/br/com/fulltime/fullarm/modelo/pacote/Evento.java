@@ -1,4 +1,7 @@
-package br.com.fulltime.fullarm.pacote;
+package br.com.fulltime.fullarm.modelo.pacote;
+
+import br.com.fulltime.fullarm.constantes.TipoConexao;
+import br.com.fulltime.fullarm.constantes.TipoProcessador;
 
 public class Evento extends PacoteGenerico {
     private TipoConexao tipoConexao;
@@ -13,7 +16,7 @@ public class Evento extends PacoteGenerico {
     public Evento(TipoConexao tipoConexao, String conta,
                   String contactId, String qualificador, String codigoEvento,
                   String particao, String argumento, String checksum) {
-        super(TipoPacote.EVENTO);
+        super(TipoProcessador.EVENTO);
         this.tipoConexao = tipoConexao;
         this.conta = conta;
         this.contactId = contactId;

@@ -1,9 +1,10 @@
-package br.com.fulltime.fullarm.pacote.factory;
+package br.com.fulltime.fullarm.modelo.pacote.factory;
 
+import br.com.fulltime.fullarm.constantes.TipoPacote;
 import br.com.fulltime.fullarm.processador.*;
 import br.com.fulltime.fullarm.processador.comando.ProcessadorComando;
-import br.com.fulltime.fullarm.processador.status.ProcessadorStatusCompleto;
-import br.com.fulltime.fullarm.processador.status.ProcessadorStatusParcial;
+import br.com.fulltime.fullarm.processador.status.completo.ProcessadorStatusCompleto;
+import br.com.fulltime.fullarm.processador.status.parcial.ProcessadorStatusParcial;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -18,7 +19,7 @@ public class PacoteFactory {
     private final ProcessadorComando processadorComando;
     private final ProcessadorStatusParcial processadorStatusParcial;
     private final ProcessadorStatusCompleto processadorStatusCompleto;
-    private final HashMap<String, ProcessadorPacote> mapa = new HashMap<>();
+    private final HashMap<TipoPacote, ProcessadorPacote> mapa = new HashMap<>();
 
     public PacoteFactory(ProcessadorAck processadorAck,
                          ProcessadorNack processadorNack,
@@ -39,25 +40,25 @@ public class PacoteFactory {
     }
 
     private void inicializarMapa() {
-        mapa.put("F7", processadorKeepAlive);
-        mapa.put("B0", processadorEvento);
-        mapa.put("FE", processadorAck);
-        mapa.put("94", processadorAutenticacao);
-        mapa.put("E0", processadorNack);
-        mapa.put("E1", processadorNack);
-        mapa.put("E2", processadorNack);
-        mapa.put("E3", processadorNack);
-        mapa.put("E4", processadorNack);
-        mapa.put("E5", processadorNack);
-        mapa.put("E6", processadorNack);
-        mapa.put("E7", processadorNack);
-        mapa.put("E8", processadorNack);
-        mapa.put("E9", processadorComando);
-        mapa.put("STP", processadorStatusParcial);
-        mapa.put("STC", processadorStatusCompleto);
+        mapa.put(TipoPacote.KEEP_ALIVE, processadorKeepAlive);
+        mapa.put(TipoPacote.EVENTO, processadorEvento);
+        mapa.put(TipoPacote.ACK, processadorAck);
+        mapa.put(TipoPacote.AUTENTICACAO, processadorAutenticacao);
+        mapa.put(TipoPacote.NACK_FORMATO_PACOTE_INVALIDO, processadorNack);
+        mapa.put(TipoPacote.NACK_SENHA_INCORRETA, processadorNack);
+        mapa.put(TipoPacote.NACK_COMANDO_INVALIDO, processadorNack);
+        mapa.put(TipoPacote.NACK_CENTRAL_NAO_PARTICIONADA, processadorNack);
+        mapa.put(TipoPacote.NACK_ZONAS_ABERTAS, processadorNack);
+        mapa.put(TipoPacote.NACK_COMANDO_DESCONTINUADO, processadorNack);
+        mapa.put(TipoPacote.NACK_USUARIO_SEM_PERMISSAO_PARA_BYPASS, processadorNack);
+        mapa.put(TipoPacote.NACK_USUARIO_SEM_PERMISSAO_PARA_DESATIVAR, processadorNack);
+        mapa.put(TipoPacote.NACK_BYPASS_NAO_PERMITIDO_COM_CENTRAL_ATIVADA, processadorNack);
+        mapa.put(TipoPacote.COMANDO, processadorComando);
+        mapa.put(TipoPacote.STATUS_PARCIAL, processadorStatusParcial);
+        mapa.put(TipoPacote.STATUS_COMPLETO, processadorStatusCompleto);
     }
 
-    public ProcessadorPacote buscarProcessador(String identificador) {
+    public ProcessadorPacote buscarProcessador(TipoPacote identificador) {
         if (mapa.isEmpty()) inicializarMapa();
         return mapa.get(identificador);
     }

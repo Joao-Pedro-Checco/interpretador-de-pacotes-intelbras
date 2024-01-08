@@ -1,4 +1,4 @@
-package br.com.fulltime.fullarm.processador.status;
+package br.com.fulltime.fullarm.constantes;
 
 public enum ModeloCentral {
     AMT2008RF("08", "AMT 2008 RF"),

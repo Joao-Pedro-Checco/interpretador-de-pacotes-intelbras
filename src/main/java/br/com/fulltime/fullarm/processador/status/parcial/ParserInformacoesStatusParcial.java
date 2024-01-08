@@ -1,9 +1,10 @@
-package br.com.fulltime.fullarm.pacote.parser;
+package br.com.fulltime.fullarm.processador.status.parcial;
 
+import br.com.fulltime.fullarm.constantes.StatusParticao;
 import br.com.fulltime.fullarm.modelo.*;
-import br.com.fulltime.fullarm.processador.status.ModeloCentral;
-import br.com.fulltime.fullarm.processador.zonas.GerenciadorDeBits;
-import br.com.fulltime.fullarm.processador.zonas.GerenciadorDeZonas;
+import br.com.fulltime.fullarm.constantes.ModeloCentral;
+import br.com.fulltime.fullarm.utils.GerenciadorDeBits;
+import br.com.fulltime.fullarm.utils.GerenciadorDeZonas;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -91,8 +92,8 @@ public class ParserInformacoesStatusParcial {
         return bateria;
     }
 
-    public List<Boolean> buscarBits(String _byte) {
-        BitSet bitSet = GerenciadorDeBits.byteHexParaBitSet(_byte);
+    public List<Boolean> buscarBits(String byteHex) {
+        BitSet bitSet = GerenciadorDeBits.byteHexParaBitSet(byteHex);
         List<Boolean> listaBool = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
             listaBool.add(bitSet.get(i));

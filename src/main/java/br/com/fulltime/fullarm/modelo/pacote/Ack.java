@@ -1,8 +1,10 @@
-package br.com.fulltime.fullarm.pacote;
+package br.com.fulltime.fullarm.modelo.pacote;
+
+import br.com.fulltime.fullarm.constantes.TipoProcessador;
 
 public class Ack extends PacoteGenerico {
     public Ack() {
-        super(TipoPacote.ACK);
+        super(TipoProcessador.ACK);
     }
 
     @Override

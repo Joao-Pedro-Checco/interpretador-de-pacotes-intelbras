@@ -1,4 +1,7 @@
-package br.com.fulltime.fullarm.pacote;
+package br.com.fulltime.fullarm.modelo.pacote;
+
+import br.com.fulltime.fullarm.constantes.TipoConexao;
+import br.com.fulltime.fullarm.constantes.TipoProcessador;
 
 public class Autenticacao extends PacoteGenerico {
     private TipoConexao tipoConexao;
@@ -7,7 +10,7 @@ public class Autenticacao extends PacoteGenerico {
     private String checksum;
 
     public Autenticacao(TipoConexao tipoConexao, String numeroDaConta, String enderecoMac, String checksum) {
-        super(TipoPacote.AUTENTICACAO);
+        super(TipoProcessador.AUTENTICACAO);
         this.tipoConexao = tipoConexao;
         this.numeroDaConta = numeroDaConta;
         this.enderecoMac = enderecoMac;

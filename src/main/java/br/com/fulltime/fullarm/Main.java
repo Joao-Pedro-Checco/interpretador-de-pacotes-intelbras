@@ -1,7 +1,9 @@
 package br.com.fulltime.fullarm;
 
-import br.com.fulltime.fullarm.pacote.PacoteGenerico;
-import br.com.fulltime.fullarm.pacote.parser.PacoteParser;
+import br.com.fulltime.fullarm.modelo.pacote.PacoteGenerico;
+import br.com.fulltime.fullarm.constantes.TipoPacote;
+import br.com.fulltime.fullarm.modelo.pacote.factory.PacoteFactory;
+import br.com.fulltime.fullarm.modelo.pacote.parser.PacoteParser;
 import br.com.fulltime.fullarm.processador.ProcessadorPacote;
 import br.com.fulltime.fullarm.utils.FormatadorHexStr;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +15,7 @@ import java.util.Scanner;
 @Service
 public class Main {
     private final PacoteParser pacoteParser;
+    private final PacoteFactory pacoteFactory;
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfiguration.class);
@@ -20,17 +23,25 @@ public class Main {
         main.start();
     }
 
-    public Main(PacoteParser pacoteParser) {
+    public Main(PacoteParser pacoteParser, PacoteFactory pacoteFactory) {
         this.pacoteParser = pacoteParser;
+        this.pacoteFactory = pacoteFactory;
     }
 
     public void start() {
-        Scanner scanner = new Scanner(System.in);
-        String hexString = FormatadorHexStr.formatar(scanner.nextLine());
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("hex string: ");
+            String input = scanner.nextLine();
+            if (input.equals("/exit")) break;
+            String hexString = FormatadorHexStr.formatar(input);
 //        ValidadorHexString.validar(hexString);
-        ProcessadorPacote processador = pacoteParser.identificarPacote(hexString);
+            TipoPacote identificadorPacote = pacoteParser.identificarPacote(hexString);
+            ProcessadorPacote processadorPacote = pacoteFactory.buscarProcessador(identificadorPacote);
+            System.out.println("Processando pacote de " + identificadorPacote);
 
-        PacoteGenerico pacoteGenerico = processador.processar(hexString);
-        System.out.println(pacoteGenerico);
+            PacoteGenerico pacoteGenerico = processadorPacote.processar(hexString);
+            System.out.println(pacoteGenerico);
+        }
     }
 }

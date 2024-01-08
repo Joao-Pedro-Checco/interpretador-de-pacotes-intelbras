@@ -1,23 +1,25 @@
 package br.com.fulltime.fullarm.utils;
 
+import br.com.fulltime.fullarm.utils.GerenciadorDeBits;
+
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
 
 public class GerenciadorDeZonas {
-    public static List<Integer> getZonasAnuladas(List<String> bytes) {
+    public static List<Integer> buscarZonasComBit1(List<String> bytes) {
         int offset = 1;
-        List<Integer> zonasAnuladas = new ArrayList<>();
+        List<Integer> zonasComBit1 = new ArrayList<>();
         for (String aByte : bytes) {
             BitSet zonas = GerenciadorDeBits.byteHexParaBitSet(aByte);
-            zonasAnuladas.addAll(zonasComOffset(zonas, offset));
+            zonasComBit1.addAll(buscarZonasComOffset(zonas, offset));
             offset += 8;
         }
 
-        return zonasAnuladas;
+        return zonasComBit1;
     }
 
-    private static List<Integer> zonasComOffset(BitSet zonas, int offset) {
+    private static List<Integer> buscarZonasComOffset(BitSet zonas, int offset) {
         int index = 0;
         List<Integer> zonasComOffset = new ArrayList<>();
         while (zonas.nextSetBit(index) > -1) {

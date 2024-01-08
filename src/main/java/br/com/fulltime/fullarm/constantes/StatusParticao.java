@@ -1,4 +1,4 @@
-package br.com.fulltime.fullarm.modelo;
+package br.com.fulltime.fullarm.constantes;
 
 public enum StatusParticao {
     HABILITADA("01", "Partição Habilitada"),

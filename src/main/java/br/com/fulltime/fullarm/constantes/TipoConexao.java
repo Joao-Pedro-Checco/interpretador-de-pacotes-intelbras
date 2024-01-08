@@ -1,4 +1,4 @@
-package br.com.fulltime.fullarm.pacote;
+package br.com.fulltime.fullarm.constantes;
 
 public enum TipoConexao {
     ETHERNET("45", "Ethernet"),

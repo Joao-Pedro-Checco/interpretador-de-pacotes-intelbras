@@ -1,6 +1,6 @@
-package br.com.fulltime.fullarm.pacote;
+package br.com.fulltime.fullarm.constantes;
 
-public enum TipoPacote {
+public enum TipoProcessador {
     ACK("Ack"),
     AUTENTICACAO("Autenticação"),
     EVENTO("Evento"),
@@ -8,12 +8,11 @@ public enum TipoPacote {
     NACK("Nack"),
     COMANDO("Comando"),
     STATUS_PARCIAL("Status Parcial"),
-    STATUS_COMPLETO("Status Completo"),
-    UNKNOWN("Desconhecido");
+    STATUS_COMPLETO("Status Completo");
 
     private final String descricao;
 
-    TipoPacote(String descricao) {
+    TipoProcessador(String descricao) {
         this.descricao = descricao;
     }
 

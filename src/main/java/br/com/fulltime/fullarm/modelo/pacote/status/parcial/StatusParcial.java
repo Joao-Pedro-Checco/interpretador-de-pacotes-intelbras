@@ -1,7 +1,10 @@
-package br.com.fulltime.fullarm.pacote;
+package br.com.fulltime.fullarm.modelo.pacote.status.parcial;
 
+import br.com.fulltime.fullarm.constantes.StatusParticao;
+import br.com.fulltime.fullarm.constantes.TipoProcessador;
 import br.com.fulltime.fullarm.modelo.*;
-import br.com.fulltime.fullarm.processador.status.ModeloCentral;
+import br.com.fulltime.fullarm.constantes.ModeloCentral;
+import br.com.fulltime.fullarm.modelo.pacote.PacoteGenerico;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,7 +28,7 @@ public class StatusParcial extends PacoteGenerico {
     private String checksum;
 
     public StatusParcial() {
-        super(TipoPacote.STATUS_PARCIAL);
+        super(TipoProcessador.STATUS_PARCIAL);
     }
 
     public void setInformacoesZonas(InformacoesZonas informacoesZonas) {

@@ -1,8 +1,10 @@
-package br.com.fulltime.fullarm.pacote;
+package br.com.fulltime.fullarm.modelo.pacote;
+
+import br.com.fulltime.fullarm.constantes.TipoProcessador;
 
 public class KeepAlive extends PacoteGenerico {
     public KeepAlive() {
-        super(TipoPacote.KEEP_ALIVE);
+        super(TipoProcessador.KEEP_ALIVE);
     }
 
     @Override

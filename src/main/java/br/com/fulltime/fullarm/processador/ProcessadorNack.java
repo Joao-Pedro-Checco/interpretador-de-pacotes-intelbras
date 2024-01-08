@@ -1,8 +1,7 @@
 package br.com.fulltime.fullarm.processador;
 
-import br.com.fulltime.fullarm.pacote.Nack;
-import br.com.fulltime.fullarm.pacote.PacoteGenerico;
-import br.com.fulltime.fullarm.pacote.TipoPacote;
+import br.com.fulltime.fullarm.modelo.pacote.Nack;
+import br.com.fulltime.fullarm.modelo.pacote.PacoteGenerico;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
